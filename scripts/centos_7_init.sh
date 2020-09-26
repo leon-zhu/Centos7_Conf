@@ -2,7 +2,7 @@
 
 yum -y update
 yum install -y net-tools.x86_64 vim-enhanced zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel \
-                readline-devel tk-devel gcc make libffi-devel wget epel-release git tree lsof
+                readline-devel tk-devel gcc make libffi-devel wget epel-release git tree lsof nmap
 yum install -y python-pip
 
 mkdir -p /opt/module /opt/software
@@ -16,6 +16,10 @@ tar -zxvf Python-3.7.6.tgz -C ${INSTALL_HOME}
 cd "${INSTALL_HOME}/Python-3.7.6" && ./configure prefix=/usr/local/python3 && make && make install
 ln -s /usr/local/python3/bin/python3.7 /usr/bin/python3
 ln -s /usr/local/python3/bin/pip3.7 /usr/bin/pip3
+
+# hadoop
+cd ${SOFTWARE_HOME} && wget 'http://ftp.mirror.tw/pub/apache/hadoop/common/hadoop-2.9.2/hadoop-2.9.2.tar.gz'
+tar -zxvf hadoop-2.9.2.tar.gz -C ${INSTALL_HOME}
 
 # Spark env
 cd ${SOFTWARE_HOME} && wget 'http://apache.communilink.net/spark/spark-2.4.7/spark-2.4.7-bin-hadoop2.7.tgz'
@@ -36,6 +40,10 @@ ln -s /opt/module/jdk1.8.0_261/bin//java /usr/bin/java
 # TimeZone
 echo 'TZ='Asia/Shanghai'; export TZ' >> ~/.profile
 source ~/.profile
+
+# close firewalld
+systemctl stop firewalld.service
+systemctl disable firewalld.service
 
 
 
