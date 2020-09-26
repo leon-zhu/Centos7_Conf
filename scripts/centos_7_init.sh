@@ -22,7 +22,7 @@ cd ${SOFTWARE_HOME} && wget 'http://apache.communilink.net/spark/spark-2.4.7/spa
 tar -zxvf spark-2.4.7-bin-hadoop2.7.tgz -C ${INSTALL_HOME}
 
 # Java env
-cd ${SOFTWARE_HOME} && wget 'https://github.com/leon-zhu/Centos7_Conf/blob/master/software/jdk-8u261-linux-x64.tar.gz'
+cd ${SOFTWARE_HOME} && wget 'https://github.com/leon-zhu/Centos7_Conf/raw/master/software/jdk-8u261-linux-x64.tar.gz'
 tar -zxvf jdk-8u261-linux-x64.tar.gz -C ${INSTALL_HOME}
 
 echo 'export JAVA_HOME=/usr/local/java/jdk1.8.0_261' >> /etc/profile
