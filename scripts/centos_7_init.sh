@@ -20,6 +20,9 @@ ln -s /usr/local/python3/bin/pip3.7 /usr/bin/pip3
 # hadoop
 cd ${SOFTWARE_HOME} && wget 'http://ftp.mirror.tw/pub/apache/hadoop/common/hadoop-2.9.2/hadoop-2.9.2.tar.gz'
 tar -zxvf hadoop-2.9.2.tar.gz -C ${INSTALL_HOME}
+echo 'export HADOOP_HOME=/opt/module/hadoop-2.9.2' >> /etc/profile
+echo 'export PATH=$PATH:${HADOOP_HOME}/bin' >> /etc/profile
+echo 'export PATH=$PATH:${HADOOP_HOME}/sbin' >> /etc/profile
 
 # Spark env
 cd ${SOFTWARE_HOME} && wget 'http://apache.communilink.net/spark/spark-2.4.7/spark-2.4.7-bin-hadoop2.7.tgz'
