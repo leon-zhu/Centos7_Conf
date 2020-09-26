@@ -33,6 +33,11 @@ source /etc/profile
 ln -s /opt/module/jdk1.8.0_261/bin//java /usr/bin/java
 
 
+# TimeZone
+echo 'TZ='Asia/Shanghai'; export TZ' >> ~/.profile
+source ~/.profile
+
+
 
 
 
