@@ -25,12 +25,12 @@ tar -zxvf spark-2.4.7-bin-hadoop2.7.tgz -C ${INSTALL_HOME}
 cd ${SOFTWARE_HOME} && wget 'https://github.com/leon-zhu/Centos7_Conf/raw/master/software/jdk-8u261-linux-x64.tar.gz'
 tar -zxvf jdk-8u261-linux-x64.tar.gz -C ${INSTALL_HOME}
 
-echo 'export JAVA_HOME=/usr/local/java/jdk1.8.0_261' >> /etc/profile
+echo 'export JAVA_HOME=/opt/module/jdk1.8.0_261/' >> /etc/profile
 echo 'export JRE_HOME=${JAVA_HOME}/jre' >> /etc/profile
 echo 'export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib' >> /etc/profile
 echo 'export PATH=${JAVA_HOME}/bin:$PATH' >> /etc/profile
 source /etc/profile
-ln -s /usr/local/java/jdk1.8.0_261/bin/java /usr/bin/java
+ln -s /opt/module/jdk1.8.0_261/bin//java /usr/bin/java
 
 
 
