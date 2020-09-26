@@ -2,7 +2,7 @@
 
 yum -y update
 yum install -y net-tools.x86_64 vim-enhanced zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel \
-                readline-devel tk-devel gcc make libffi-devel wget epel-release git
+                readline-devel tk-devel gcc make libffi-devel wget epel-release git tree
 yum install -y python-pip
 
 mkdir -p /opt/module /opt/software
