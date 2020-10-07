@@ -5,12 +5,6 @@ yum install -y net-tools.x86_64 vim-enhanced zlib-devel bzip2-devel openssl-deve
                 readline-devel tk-devel gcc make libffi-devel wget epel-release git tree lsof nmap p7zip
 yum install -y python-pip
 
-# 升级gcc 4.8.5 -> 9.3.1 (方便编译redis 6.0)
-yum -y install centos-release-scl &&
-yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils &&
-scl enable devtoolset-9 bash
-
-
 mkdir -p /opt/module /opt/software
 SOFTWARE_HOME="/opt/software"
 INSTALL_HOME="/opt/module"
@@ -46,7 +40,12 @@ echo 'export PATH=${JAVA_HOME}/bin:$PATH' >> /etc/profile
 source /etc/profile
 ln -s /opt/module/jdk1.8.0_261/bin//java /usr/bin/java
 
-# redis 6.0
+# Redis 6.0
+# 升级gcc 4.8.5 -> 9.3.1 (方便编译redis 6.0)
+yum -y install centos-release-scl &&
+yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils &&
+scl enable devtoolset-9 bash
+
 cd ${SOFTWARE_HOME} && wget 'http://download.redis.io/releases/redis-6.0.8.tar.gz'
 tar -zxvf redis-6.0.8.tar.gz -C ${INSTALL_HOME}
 make && make install PREFIX=/usr/local/redis
